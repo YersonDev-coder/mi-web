@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* ── Tokens de marca corporativa ────────────────────────────────────────── */
+@theme {
+  --color-corporativo-oscuro:    #0f172a;
+  --color-corporativo-medio:     #1e293b;
+  --color-superficie-clara:      #f8fafc;
+  --color-superficie-media:      #f1f5f9;
+  --color-borde-fino:            #e2e8f0;
+  --color-enfoque-tecnologico:   #38bdf8;
+  --color-texto-principal:       #1e293b;
+  --color-texto-secundario:      #64748b;
+  --color-texto-terciario:       #94a3b8;
+}

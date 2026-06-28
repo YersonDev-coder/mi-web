@@ -1,0 +1,275 @@
+/* ══════════════════════════════════════════════
+   Mi Perfil — vista dentro del app (fondo claro)
+══════════════════════════════════════════════ */
+.pagina {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Cabecera ───────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 20px;
+  padding: 2rem 2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00c4cc, #0060ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 24px rgba(0,180,255,.35);
+}
+
+.heroInfo { flex: 1; min-width: 0; }
+
+.heroNombre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f0f8ff;
+  margin-bottom: .2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.heroUser {
+  font-size: .78rem;
+  color: #38bdf8;
+  letter-spacing: .08em;
+  margin-bottom: .3rem;
+}
+
+.heroBadge {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #0ea5e9;
+  background: rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.25);
+  border-radius: 20px;
+  padding: .18rem .7rem;
+}
+
+/* ── Tarjetas de sección ────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+.cardHeader:hover { background: #f8fafc; }
+
+.cardHeaderIzq {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.cardHeaderIcono {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: #f1f5f9;
+}
+
+.cardHeaderTitulo {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cardChevron {
+  color: #94a3b8;
+  font-size: .7rem;
+  transition: transform .2s;
+}
+.cardChevronOpen { transform: rotate(180deg); }
+
+.cardBody {
+  padding: 0 1.4rem 1.4rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding-top: 1.2rem;
+}
+
+/* ── Campos ─────────────────────────────────── */
+.campo { display: flex; flex-direction: column; gap: .3rem; }
+
+.label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.input {
+  width: 100%;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: .72rem 1rem;
+  font-size: .9rem;
+  color: #1e293b;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  box-sizing: border-box;
+}
+.input::placeholder { color: #cbd5e1; }
+.input:focus {
+  border-color: #38bdf8;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(56,189,248,.1);
+}
+.inputError { border-color: #fca5a5; }
+.inputError:focus { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.1); }
+
+.inputWrap { position: relative; }
+.ojo {
+  position: absolute; right: .8rem; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none; cursor: pointer;
+  color: #94a3b8; font-size: .95rem; padding: .2rem;
+  transition: color .15s;
+}
+.ojo:hover { color: #0ea5e9; }
+
+/* ── Botones ─────────────────────────────────── */
+.btn {
+  padding: .75rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s, transform .1s;
+  letter-spacing: .03em;
+}
+.btn:active { transform: scale(.98); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btnPrimario {
+  background: linear-gradient(135deg, #0ea5e9, #0060ff);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(14,165,233,.3);
+}
+.btnPrimario:hover:not(:disabled) { opacity: .92; }
+
+.btnPeligro {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(239,68,68,.25);
+}
+.btnPeligro:hover:not(:disabled) { opacity: .92; }
+
+.btnGris {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+.btnGris:hover:not(:disabled) { background: #e2e8f0; color: #475569; }
+
+/* ── Alertas ─────────────────────────────────── */
+.alerta {
+  font-size: .8rem;
+  border-radius: 8px;
+  padding: .6rem .9rem;
+  line-height: 1.5;
+}
+.alertaOk    { color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; }
+.alertaError { color: #991b1b; background: #fff1f2; border: 1px solid #fecaca; }
+.alertaInfo  { color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; }
+
+/* ── Zona de peligro ─────────────────────────── */
+.zonaPeligro {
+  background: #fff;
+  border: 1.5px solid #fecaca;
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 2px 8px rgba(239,68,68,.06);
+}
+
+.zonaTitulo {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #ef4444;
+  margin-bottom: .6rem;
+}
+
+.zonaDesc {
+  font-size: .82rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.fila { display: flex; gap: .7rem; flex-wrap: wrap; }
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .pagina { padding: 0 0 2rem; }
+
+  .hero {
+    border-radius: 0 0 20px 20px;
+    padding: 1.5rem 1.2rem 1.2rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .avatar { width: 56px; height: 56px; font-size: 1.3rem; }
+
+  .heroNombre { font-size: 1rem; white-space: normal; }
+
+  .card { border-radius: 12px; margin-bottom: .7rem; }
+
+  .cardBody { padding: 0 1rem 1rem; padding-top: 1rem; }
+
+  .cardHeader { padding: .85rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: .8rem; padding: 1.2rem 1rem 1rem; }
+
+  .fila { flex-direction: column; }
+  .fila .btn { width: 100%; }
+
+  .zonaPeligro { border-radius: 12px; padding: 1rem; }
+
+  .tarjeta { padding: 1.6rem 1.2rem; }
+}

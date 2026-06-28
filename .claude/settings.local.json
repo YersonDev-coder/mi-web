@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"c:\\\\Users\\\\CARLOS\\\\Documents\\\\INGENIERIA DE PROCESOS\\\\Automatizacion\\\\frontend\"; Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd \"c:\\\\Users\\\\CARLOS\\\\Documents\\\\INGENIERIA DE PROCESOS\\\\Automatizacion\\\\frontend\"; npm run dev')",
+      "PowerShell(Get-Process python -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\CARLOS\\\\Documents\\\\INGENIERIA DE PROCESOS\\\\Automatizacion\\\\backend\" -Directory | Where-Object {$_.Name -ne \"venv\"})",
+      "PowerShell(Get-Process -Name \"python\" -ErrorAction SilentlyContinue)",
+      "PowerShell($ruta = \"c:\\\\Users\\\\CARLOS\\\\Documents\\\\INGENIERIA DE PROCESOS\\\\Automatizacion\\\\backend\\\\db_excel\\\\inventario_indicadores.xlsx\"; if \\(Test-Path $ruta\\) { $f = [System.IO.File]::Open\\($ruta, 'Open', 'ReadWrite', 'None'\\); $f.Close\\(\\); Write-Host \"Archivo libre\" } else { Write-Host \"No existe\" })"
+    ]
+  }
+}

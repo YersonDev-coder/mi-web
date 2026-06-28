@@ -1,0 +1,349 @@
+/* ── Ficha de Proceso — prefijo .fp- ───────────────────────────────────────── */
+.fp-vista { padding: 0; }
+
+.fp-cabecera {
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  align-items: center; gap: 14px;
+  padding: 14px 22px; margin-bottom: 20px;
+  background: #ffffff;
+  border-bottom: 3px solid #2563EB;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.fp-cabecera h2 { font-size: 20px; font-weight: 800; color: #0F172A; letter-spacing: -.3px; margin: 0; }
+
+/* ── Cabecera derecha: tabs + Ver ficha en la misma fila ─────────────────── */
+.fp-cabecera-derecha {
+  display: flex; flex-direction: row; align-items: center; gap: 10px;
+}
+
+/* ── Tabs ──────────────────────────────────────────────────────────────────── */
+.fp-tabs {
+  display: inline-flex; background: #F1F5F9; border: 1.5px solid #CBD5E1;
+  border-radius: 10px; padding: 4px; gap: 3px;
+}
+.fp-tab {
+  border: none; background: transparent; cursor: pointer;
+  padding: 7px 20px; font-size: 13px; font-weight: 600;
+  color: #475569; border-radius: 7px; transition: all .15s; font-family: inherit;
+  white-space: nowrap;
+}
+.fp-tab:hover { background: #E2E8F0; color: #0F172A; }
+.fp-tab.activo {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  color: #fff; box-shadow: 0 2px 8px rgba(37,99,235,.35);
+  font-weight: 700;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────────── */
+.fp-layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; align-items: start; }
+
+/* ── Árbol ─────────────────────────────────────────────────────────────────── */
+.fp-arbol {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07); border: 1px solid #E2E8F0;
+  position: sticky; top: 0; max-height: 80vh; overflow-y: auto;
+}
+.fp-arbol-titulo {
+  font-size: 10.5px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: #fff; padding: 10px 14px;
+  background: linear-gradient(135deg, #0F172A, #1E293B);
+}
+.fp-nodo { user-select: none; }
+.fp-nodo-fila {
+  display: flex; align-items: center; gap: 7px; padding: 7px 10px;
+  cursor: pointer; transition: background .12s; font-size: 13px;
+  border-bottom: 1px solid #F8FAFC;
+}
+.fp-nodo-fila:hover { background: #EEF5FF; }
+.fp-nodo-fila.sel  {
+  background: linear-gradient(90deg, #DBEAFE, #EFF6FF);
+  border-left: 4px solid #2563EB;
+  box-shadow: inset 0 0 0 1px #BFDBFE;
+}
+.fp-nodo-fila.sel .fp-nodo-nombre {
+  color: #1D4ED8;
+  font-weight: 700;
+}
+.fp-toggle { width: 14px; color: #CBD5E1; font-size: 10px; flex-shrink: 0; }
+/* ↓ PUNTOS DE ESTADO — NO MODIFICAR ↓ */
+.fp-punto { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.fp-punto.verde { background: #16a34a; box-shadow: 0 0 0 3px #dcfce7; }
+.fp-punto.rojo  { background: #dc2626; box-shadow: 0 0 0 3px #fee2e2; }
+/* ↑ PUNTOS DE ESTADO — NO MODIFICAR ↑ */
+.fp-nodo-nombre { flex: 1; color: #1E293B; font-weight: 500; transition: color .12s; }
+.fp-hijos { margin-left: 12px; border-left: 1.5px dashed #E2E8F0; padding-left: 8px; }
+.fp-leyenda {
+  display: flex; gap: 14px; padding: 10px 14px; border-top: 1px solid #F1F5F9;
+  font-size: 11.5px; color: #64748B; background: #F8FAFC;
+}
+.fp-leyenda span { display: flex; align-items: center; gap: 5px; }
+
+/* ── Panel ─────────────────────────────────────────────────────────────────── */
+.fp-panel { display: flex; flex-direction: column; gap: 16px; }
+.fp-vacio-panel {
+  background: #fff; border: 2px dashed #E2E8F0; border-radius: 12px;
+  padding: 48px 24px; text-align: center; color: #94A3B8; font-size: 14px;
+}
+
+/* ── Secciones ─────────────────────────────────────────────────────────────── */
+.fp-seccion {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07); border: 1px solid #E2E8F0;
+}
+.fp-seccion-cab {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px; background: linear-gradient(135deg, #0F172A, #1E293B);
+}
+.fp-seccion-cab h3 { font-size: 13.5px; font-weight: 700; color: #fff; }
+.fp-seccion-cab .fp-sub { font-size: 11px; color: #94A3B8; }
+/* Contenido interno */
+.fp-seccion > .fp-grid { padding: 16px; }
+
+/* ── Formulario ────────────────────────────────────────────────────────────── */
+.fp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
+.fp-campo { display: flex; flex-direction: column; gap: 4px; }
+.fp-campo.full { grid-column: 1 / -1; }
+.fp-campo span { font-size: 10.5px; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: .5px; }
+.fp-campo input,
+.fp-campo textarea,
+.fp-campo select {
+  border: 1.5px solid #E2E8F0; border-radius: 8px; padding: 8px 11px;
+  font-size: 13px; font-family: inherit; background: #FAFAFA;
+  color: #1E293B; transition: border .18s, box-shadow .18s; resize: vertical;
+}
+.fp-campo input:focus,
+.fp-campo textarea:focus,
+.fp-campo select:focus {
+  outline: none; border-color: #3B82F6; background: #fff;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.14);
+}
+
+/* ── Botones ───────────────────────────────────────────────────────────────── */
+.fp-btn {
+  border: none; border-radius: 8px; padding: 8px 16px; font-size: 13px;
+  font-weight: 600; cursor: pointer; transition: all .18s; font-family: inherit;
+}
+.fp-btn-primario {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #fff;
+  box-shadow: 0 2px 6px rgba(37,99,235,.28);
+}
+.fp-btn-primario:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,.36); }
+.fp-btn-diagrama {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  color: #fff; border-radius: 7px; padding: 7px 18px;
+  font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; cursor: pointer; font-family: inherit;
+  transition: all .15s; box-shadow: 0 2px 8px rgba(37,99,235,.3);
+}
+.fp-btn-diagrama:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(37,99,235,.45); }
+/* ── Botón IA ──────────────────────────────────────────────────────────────── */
+.fp-btn-ia {
+  background: linear-gradient(135deg, #7C3AED, #4F46E5);
+  color: #fff; border-radius: 7px; padding: 7px 18px;
+  font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; cursor: pointer; font-family: inherit;
+  transition: all .15s; box-shadow: 0 2px 10px rgba(124,58,237,.4);
+  white-space: nowrap;
+}
+.fp-btn-ia:hover:not(:disabled) {
+  transform: translateY(-1px); box-shadow: 0 4px 18px rgba(124,58,237,.6);
+}
+.fp-btn-ia:disabled { opacity: .65; cursor: not-allowed; }
+
+.fp-ia-star {
+  font-size: 14px;
+  animation: fp-star-pulse 2.2s ease-in-out infinite;
+}
+@keyframes fp-star-pulse {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50%       { opacity: .75; transform: scale(1.2) rotate(18deg); }
+}
+.fp-ia-spin {
+  display: inline-block; width: 13px; height: 13px;
+  border: 2px solid rgba(255,255,255,.3); border-top-color: #fff;
+  border-radius: 50%; animation: fp-spin .7s linear infinite;
+}
+@keyframes fp-spin { to { transform: rotate(360deg); } }
+
+/* ── Barra de notificación IA ──────────────────────────────────────────────── */
+.fp-ia-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 22px; font-size: 13px; font-weight: 500;
+}
+.fp-ia-bar button {
+  background: none; border: none; cursor: pointer; font-size: 14px; opacity: .7;
+}
+.fp-ia-bar button:hover { opacity: 1; }
+.fp-ia-bar-ok  { background: #DCFCE7; color: #15803D; border-bottom: 1px solid #A7F3D0; }
+.fp-ia-bar-err { background: #FEF2F2; color: #B91C1C; border-bottom: 1px solid #FECACA; }
+
+.fp-btn-ver {
+  background: #0F172A; color: #fff;
+  border-radius: 7px; padding: 7px 18px;
+  font-size: 13px; font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  border: none; cursor: pointer; font-family: inherit;
+  transition: all .15s;
+}
+.fp-btn-ver:hover { background: #1D4ED8; box-shadow: 0 4px 12px rgba(37,99,235,.35); }
+.fp-btn-mini {
+  background: #EFF6FF; color: #1D4ED8; border: 1.5px solid #BFDBFE;
+  padding: 6px 12px; font-size: 12px;
+}
+.fp-btn-mini:hover { background: #2563EB; color: #fff; border-color: #2563EB; }
+.fp-btn-icono {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid;
+  cursor: pointer; font-size: 15px; font-family: inherit;
+  transition: background .15s, color .15s, transform .12s, box-shadow .12s;
+}
+.fp-btn-icono:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,.15); }
+.fp-btn-editar { background: #EFF6FF; color: #2563EB; border-color: #BFDBFE; }
+.fp-btn-editar:hover { background: #2563EB !important; color: #fff !important; border-color: #2563EB !important; }
+.fp-btn-borrar { background: #FEF2F2; color: #DC2626; border-color: #FECACA; }
+.fp-btn-borrar:hover { background: #DC2626 !important; color: #fff !important; border-color: #DC2626 !important; }
+.fp-acciones-fila { display: flex; gap: 6px; justify-content: flex-end; align-items: center; }
+
+/* ── Tablas ────────────────────────────────────────────────────────────────── */
+.fp-tabla { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fp-tabla thead tr { background: linear-gradient(135deg, #1E293B, #334155); }
+.fp-tabla th {
+  text-align: left; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; color: #CBD5E1; padding: 9px 12px; border: none;
+}
+.fp-tabla td { padding: 8px 12px; border-bottom: 1px solid #F1F5F9; color: #1E293B; vertical-align: top; }
+.fp-tabla tr:last-child td { border-bottom: none; }
+.fp-tabla tr:nth-child(even) td { background: #FAFBFF; }
+.fp-tabla tbody tr:hover td { background: #EEF5FF; }
+.fp-tabla .fp-acciones-fila { white-space: nowrap; }
+.fp-tabla input,
+.fp-tabla select,
+.fp-tabla textarea {
+  width: 100%; border: 1.5px solid #E2E8F0; border-radius: 7px;
+  padding: 5px 9px; font-size: 12.5px; font-family: inherit;
+}
+.fp-tabla-vacia { color: #94A3B8; font-style: italic; padding: 14px 12px; font-size: 12.5px; }
+.fp-orden-auto  { color: #CBD5E1; font-size: 11px; font-style: italic; text-align: center; }
+
+/* Textarea en tablas SIPOC */
+.fp-ta {
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  padding: 6px 9px;
+  font-size: 12.5px;
+  font-family: inherit;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 6px;
+  background: #F8FAFC;
+  color: #1E293B;
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: border-color .15s;
+}
+.fp-ta:focus { outline: none; border-color: #3B82F6; background: #fff; }
+.fp-ta::placeholder { color: #94A3B8; }
+
+/* Badges SIPOC */
+.fp-badge-flujo { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
+.fp-badge-entrada { background: #DBEAFE; color: #1D4ED8; }
+.fp-badge-salida  { background: #DCFCE7; color: #15803D; }
+
+/* ── Modal ─────────────────────────────────────────────────────────────────── */
+.fp-modal-fondo {
+  position: fixed; inset: 0; background: rgba(15,23,42,.6);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 28px 16px; z-index: 1000; overflow-y: auto;
+}
+.fp-modal {
+  background: #fff; border-radius: 14px; width: 100%; max-width: 1000px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.3);
+}
+.fp-modal-barra {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px; border-bottom: 1px solid #F1F5F9;
+  position: sticky; top: 0; background: #fff; border-radius: 14px 14px 0 0;
+}
+.fp-doc { padding: 20px; }
+.fp-doc-titulo {
+  background: #C9D6EA; border: 1px solid #94A3B8;
+  text-align: center; font-weight: 700; padding: 8px; color: #0F172A; font-size: 14px;
+}
+.fp-doc-tabla { width: 100%; border-collapse: collapse; margin-bottom: 2px; }
+.fp-doc-tabla th,
+.fp-doc-tabla td { border: 1px solid #94A3B8; padding: 6px 10px; font-size: 12.5px; vertical-align: top; text-align: left; }
+.fp-doc-tabla th.fp-az { background: #C9D6EA; color: #0F172A; font-weight: 600; }
+.fp-amarillo { background: #fef9c3; }
+.fp-doc-banda {
+  background: #C9D6EA; border: 1px solid #94A3B8;
+  text-align: center; font-weight: 700; padding: 5px; color: #0F172A; font-size: 12.5px; margin-top: 2px;
+}
+
+/* ── Tablet ────────────────────────────────────────────────────────────────── */
+@media (max-width: 940px) {
+  .fp-layout { grid-template-columns: 1fr; }
+  .fp-arbol  { position: static; max-height: none; }
+  .fp-grid   { grid-template-columns: 1fr; }
+}
+
+/* ── Móvil ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Cabecera: apila título y controles */
+  .fp-cabecera {
+    padding: 12px 14px;
+    gap: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+  .fp-cabecera h2 { font-size: 16px; }
+
+  .fp-cabecera-derecha {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Tabs con scroll horizontal */
+  .fp-tabs {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fp-tabs::-webkit-scrollbar { display: none; }
+  .fp-tab { padding: 6px 13px; font-size: 12px; white-space: nowrap; }
+
+  /* Botones de acción compactos */
+  .fp-btn         { padding: 7px 12px; font-size: 12px; }
+  .fp-btn-diagrama { padding: 7px 12px; font-size: 12px; }
+  .fp-btn-ia      { padding: 7px 12px; font-size: 12px; white-space: nowrap; }
+  .fp-btn-ver     { padding: 7px 12px; font-size: 12px; white-space: nowrap; }
+  .fp-btn-mini    { padding: 5px 9px; font-size: 11px; }
+
+  /* Cabecera de sección: apila title y sub */
+  .fp-seccion-cab {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 14px;
+  }
+
+  /* Formulario: 1 columna en móvil */
+  .fp-grid { padding: 12px; gap: 10px; }
+
+  /* Tablas: scroll horizontal */
+  .fp-seccion { overflow-x: auto; }
+  .fp-tabla   { min-width: 500px; }
+
+  /* Barra de notif IA */
+  .fp-ia-bar { padding: 8px 14px; font-size: 12px; flex-wrap: wrap; gap: 6px; }
+
+  /* Modal: menos padding en pantallas pequeñas */
+  .fp-modal-fondo { padding: 10px 8px; }
+  .fp-modal       { border-radius: 10px; }
+  .fp-doc         { padding: 12px; }
+}

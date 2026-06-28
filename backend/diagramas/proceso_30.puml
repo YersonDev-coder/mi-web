@@ -1,0 +1,18 @@
+@startuml
+title Implementación de lógica de negocio
+start
+:Revisar diseño técnico;
+:Identificar clases y servicios;
+:Codificar reglas de negocio;
+:Implementar servicios backend;
+if (¿Patrones y estándares aplicados?) then (si)
+  :Registrar cambios en repositorio;
+  :Dejar lógica lista para integración;
+  stop
+else (no)
+  :Aplicar patrones y estándares;
+  :Registrar cambios en repositorio;
+  :Dejar lógica lista para integración;
+  stop
+endif
+@enduml

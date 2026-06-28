@@ -1,0 +1,301 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   INVENTARIO DE PROCESOS — Diseño moderno 2026
+══════════════════════════════════════════════════════════════════════════════ */
+
+.arb-wrap { padding-top: 8px; }
+
+/* ── Leyenda ─────────────────────────────────────────────────────────────── */
+.arb-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f8faff 0%, #eef2fb 100%);
+  border: 1px solid #dde5f0;
+  border-radius: 16px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, .07), inset 0 0 0 1px rgba(255,255,255,.8);
+}
+.arb-ley-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: #fff;
+  padding: 5px 14px;
+  border-radius: 30px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+  letter-spacing: .01em;
+}
+.arb-ley-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Contenedor ──────────────────────────────────────────────────────────── */
+.arb-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ══ GRUPO (Estratégico / Misional / Apoyo) ══════════════════════════════ */
+.arb-grupo {
+  border-radius: 14px;
+  overflow: hidden;
+  border-left: 5px solid var(--gc, #2563eb);
+  box-shadow:
+    0 6px 28px rgba(0, 0, 0, .13),
+    0 2px 6px rgba(0, 0, 0, .07),
+    0 0 0 1px rgba(0, 0, 0, .04);
+}
+
+.arb-grupo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1.5px solid rgba(0, 0, 0, .06);
+  user-select: none;
+  transition: filter .18s;
+}
+.arb-grupo-header:hover { filter: brightness(.97); }
+
+.arb-grupo-titulo {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -.2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Badge de conteo en el header */
+.arb-cnt-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, .07);
+  color: inherit;
+  letter-spacing: .02em;
+}
+
+/* Cuerpo del grupo */
+.arb-grupo-cuerpo {
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ══ NODO ════════════════════════════════════════════════════════════════ */
+.arb-item { display: flex; flex-direction: column; }
+
+.arb-item-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background .15s;
+  position: relative;
+}
+.arb-item-fila:hover { background: #f8faff; }
+.arb-item-fila:last-child { border-bottom: none; }
+
+/* Barra de color lateral */
+.arb-item-barra {
+  width: 3px;
+  align-self: stretch;
+  min-height: 36px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  opacity: .5;
+  transition: opacity .15s, width .2s;
+}
+.arb-item-fila:hover .arb-item-barra {
+  opacity: 1;
+  width: 4px;
+}
+
+/* Contenido: código + nombre + contador */
+.arb-item-texto {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Código como badge coloreado */
+.arb-item-cod {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: color-mix(in srgb, currentColor 12%, #fff);
+  border: 1.5px solid color-mix(in srgb, currentColor 25%, #fff);
+}
+
+.arb-item-nom {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.35;
+  transition: color .12s;
+}
+.arb-item-fila:hover .arb-item-nom { color: #0f172a; }
+
+/* Contador de hijos */
+.arb-item-cnt {
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #64748b !important;
+  border: 1px solid #e2e8f0;
+  opacity: 1 !important;
+}
+
+/* ── Sub-árbol ───────────────────────────────────────────────────────────── */
+.arb-item-hijos {
+  border-left: 2px dashed #e2e8f0;
+  margin-left: 26px;
+}
+
+/* ══ BOTÓN TOGGLE ══════════════════════════════════════════════════════════ */
+.arb-toggle-v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  flex-shrink: 0;
+  padding: 0;
+  color: inherit;
+  opacity: .7;
+  transition: background .15s, color .15s, opacity .15s;
+  line-height: 1;
+}
+.arb-toggle-v:hover {
+  background: currentColor;
+  color: #fff !important;
+  opacity: 1;
+}
+
+.arb-toggle-grupo {
+  width: 32px;
+  height: 32px;
+  font-size: 17px;
+}
+
+/* ── Estados ─────────────────────────────────────────────────────────────── */
+.inv-cargando,
+.inv-vacio {
+  padding: 56px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ESTILOS HEREDADOS — PanelJerarquia
+══════════════════════════════════════════════════════════════════════════════ */
+
+.campo-estrategico-bloque {
+  border-top: 1.5px dashed #cbd5e1;
+  margin-top: 4px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.campo textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: #1e293b;
+  resize: vertical;
+  background: #f8fafc;
+  transition: border-color .15s;
+  box-sizing: border-box;
+}
+.campo textarea:focus { outline: none; border-color: #2563eb; background: #fff; }
+.campo textarea:disabled { opacity: .5; cursor: not-allowed; }
+.tarjeta-estrategico {
+  margin-top: 8px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.est-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #475569;
+  line-height: 1.4;
+  margin: 0;
+  text-align: left;
+}
+.est-etiq {
+  flex-shrink: 0;
+  background: #1d4ed8;
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: .04em;
+  margin-top: 1px;
+}
+
+/* ── Responsivo ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .arb-leyenda { gap: 8px; padding: 10px 14px; }
+  .arb-ley-item { font-size: 11px; padding: 4px 11px; }
+  .arb-grupo-header { padding: 13px 16px; }
+  .arb-grupo-titulo { font-size: 13.5px; }
+}
+
+@media (max-width: 640px) {
+  .arb-leyenda { gap: 7px; padding: 8px 12px; }
+  .arb-grupo-header { padding: 11px 13px; }
+  .arb-grupo-titulo { font-size: 13px; gap: 8px; }
+  .arb-item-hijos { margin-left: 14px; }
+  .arb-item-fila { padding: 7px 10px 7px 0; gap: 8px; }
+  .arb-item-nom { font-size: 12.5px; }
+  .arb-item-cod { font-size: 9.5px; }
+  .arb-item-barra { min-height: 30px; }
+  .arb-toggle-v { width: 26px; height: 26px; font-size: 14px; }
+  .arb-toggle-grupo { width: 30px; height: 30px; font-size: 16px; }
+}

@@ -1,0 +1,8 @@
+@startuml
+title Planificación de calidad
+start
+:Definir plan de calidad;
+:Definir criterios de aceptación;
+:Preparar entorno de pruebas;
+stop
+@enduml

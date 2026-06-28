@@ -1,0 +1,49 @@
+@startuml
+title Definición de atributos de calidad y criterios técnicos
+start
+:Identificar atributos de calidad;
+:Analizar requerimientos de disponibilidad, escalabilidad, seguridad y usabilidad;
+:Priorizar atributos bajo norma ISO/IEC 25010;
+if (¿Atributos priorizados correctamente?) then (si)
+  :Evaluar y seleccionar stack tecnológico;
+  :Comparar frameworks, lenguajes y bases de datos;
+  if (¿Stack compatible con infraestructura actual?) then (si)
+    :Seleccionar herramientas de desarrollo y despliegue;
+    stop
+  else (no)
+    :Reevaluar stack tecnológico;
+    :Comparar frameworks, lenguajes y bases de datos;
+    if (¿Stack compatible con infraestructura actual?) then (si)
+      :Seleccionar herramientas de desarrollo y despliegue;
+      stop
+    else (no)
+      :Seleccionar herramientas alternativas;
+      stop
+    endif
+  endif
+else (no)
+  :Revisar priorización de atributos;
+  :Priorizar atributos bajo norma ISO/IEC 25010;
+  if (¿Atributos priorizados correctamente?) then (si)
+    :Evaluar y seleccionar stack tecnológico;
+    :Comparar frameworks, lenguajes y bases de datos;
+    if (¿Stack compatible con infraestructura actual?) then (si)
+      :Seleccionar herramientas de desarrollo y despliegue;
+      stop
+    else (no)
+      :Reevaluar stack tecnológico;
+      :Comparar frameworks, lenguajes y bases de datos;
+      if (¿Stack compatible con infraestructura actual?) then (si)
+        :Seleccionar herramientas de desarrollo y despliegue;
+        stop
+      else (no)
+        :Seleccionar herramientas alternativas;
+        stop
+      endif
+    endif
+  else (no)
+    :Revisar priorización de atributos;
+    stop
+  endif
+endif
+@enduml
